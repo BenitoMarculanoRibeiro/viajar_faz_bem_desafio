@@ -8,36 +8,66 @@ class City(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     '''def all_json(self):
         return [x.dados_json() for x in c if x != None] '''
 
     def dados_json(self):
-        return {"name": self.name, "slug": self.slug, "state": self.state}
+        return {"id": self.id,"name": self.name, "slug": self.slug, "state": self.state}
 
 
 class Country(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
 
+    def __str__(self):
+        return self.name
+
+    def dados_json(self):
+        return {"id": self.id,"name": self.name, "slug": self.slug}
+
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
 
+    def __str__(self):
+        return self.name
 
-class Itens(models.Model):
+    def dados_json(self):
+        return {"id": self.id,"name": self.name, "slug": self.slug}
+
+
+class Item(models.Model):
     hotel_name = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255, unique=True)
-    image = models.CharField(max_length=1024)
+    slug = models.SlugField(max_length=255)
+    image = models.CharField(max_length=255)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=19, decimal_places=2)
+    page = models.ForeignKey(
+        "Page", on_delete=models.CASCADE, related_name='page')
+
+    def __str__(self):
+        return self.hotel_name
+
+    def dados_json(self):
+        return {"id": self.id,"hotel_name": self.hotel_name, "slug": self.slug, "image": self.image, "city": self.city, "country": self.country, "category": self.category, "price": self.price, "page": self.page}
 
 
 class Page(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255)
-    itens = models.ForeignKey(Itens, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.title
+
+    def dados_json(self):
+        return {"id": self.id,"title": self.title, "subtitle": self.subtitle}
+
+
+    #itens = models.OneToOneField(Item,on_delete=models.CASCADE, related_name='item')
+    #itens = models.ForeignKey("Item", on_delete=models.CASCADE, related_name='item')
+'''class PageItem(models.Model):
+    id = models.PositiveIntegerField(foreign_key=True)'''

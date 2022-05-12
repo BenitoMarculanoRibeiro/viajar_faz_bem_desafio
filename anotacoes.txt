@@ -1,0 +1,20 @@
+Iniciar Servidor:
+
+cd desafio
+py manage.py runserver
+
+Criar Super Usuario;
+
+py manage.py createsuperuser
+
+Alterar tabela vitrines:
+
+python manage.py makemigrations vitrines  
+python manage.py sqlmigrate vitrines 0001 
+python manage.py migrate
+
+ou
+
+python manage.py makemigrations
+python manage.py migrate
+

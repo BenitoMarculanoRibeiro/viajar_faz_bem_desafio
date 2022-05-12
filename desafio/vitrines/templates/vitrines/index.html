@@ -1,0 +1,9 @@
+{% if citys %}
+    <ul>
+    {% for city in citys %}
+        <li><a href="/vitrines/{{ city.slug }}/">{{ city.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No citys are available.</p>
+{% endif %}
