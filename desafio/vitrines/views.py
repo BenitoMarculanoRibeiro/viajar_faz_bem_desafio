@@ -1,25 +1,26 @@
-from django.http import HttpResponse
 from django.shortcuts import render
-from django.template import loader
 from .models import *
+pages = Page.objects.all()
 
 
 def index(request):
-    citys = City.objects.all()
-    context = {'citys': citys}
-    return render(request, 'vitrines/index.html', context)
+    itens = Item.objects.all()
+    return render(request, 'vitrines/index.html', {'itens': itens, 'pages': pages})
 
 
-def page(request, page_id):
-    page = Page.objects.get(id=page_id)
-    return HttpResponse(f"Pagina com a tematica sobre {page.title}.")
+def home(request):
+    page_id = 2
+    itens = Item.objects.filter(page_id=page_id)
+    return render(request, 'vitrines/index.html', {'itens': itens, 'pages': pages.filter(id=page_id)})
 
 
-def destinos(request, city_id):
-    city = City.objects.get(id=city_id)
-    return HttpResponse(f"Pagina com hoteis da cidade {city}.")
+def destinos(request):
+    page_id = 1
+    itens = Item.objects.filter(page_id=page_id)
+    return render(request, 'vitrines/index.html', {'itens': itens, 'pages': pages.filter(id=page_id)})
 
 
-def sobre(request, item_id):
-    item = Item.objects.get(id=item_id)
-    return HttpResponse(f"Pagina sobre o hotel {item.slug}.")
+def sobre(request):
+    page_id = 3
+    itens = Item.objects.filter(page_id=page_id)
+    return render(request, 'vitrines/index.html', {'itens': itens, 'pages': pages.filter(id=page_id)})

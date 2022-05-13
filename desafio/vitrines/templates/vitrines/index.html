@@ -1,9 +1,37 @@
-{% if citys %}
-    <ul>
-    {% for city in citys %}
-        <li><a href="/vitrines/{{ city.slug }}/">{{ city.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No citys are available.</p>
-{% endif %}
+<!DOCTYPE html> {% load static %}
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajar Faz Bem Desafio</title>
+    <link rel="icon" type="imagem/png" href="https://viajarfazbem.com/favicon-16.png" />
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrines/css/style.css' %}">
+</head>
+
+<body>
+    {% if itens and pages %} {% for page in pages %}
+    <div class="container_titles">
+        <p class="title">{{ page.title }}</p>
+        <p class="subtitle">{{ page.subtitle }}</p>
+    </div>
+    <div class="grid">
+        {% for item in itens %}
+        <div class="card">
+            <div class="image">
+                <a href="{{ item.slug}}"><img src="https://thumb.sbtur.com/FxHMThgskvnFO2gAVLaACkEYtG8=/1000x600/smart/viajar-faz-bem-production.s3.amazonaws.com/portal/accommodation/pousada-verde-%C3%A1gua--1b66eae7-93a9-4313-954d-d8a511e082f9.jpg" alt="{{item.hotel_name}}"></a>
+            </div>
+            <div class="content">
+                <a class="name" href="/vitrines/{{ item.slug }}">
+                    <p>{{ item.hotel_name }}</p>
+                </a>
+                <p class="endereco">{{ item.city }}, {{ item.city.state }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</body>
+
+</html>
