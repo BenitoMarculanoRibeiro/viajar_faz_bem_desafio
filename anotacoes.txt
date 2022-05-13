@@ -18,3 +18,10 @@ ou
 python manage.py makemigrations
 python manage.py migrate
 
+Usar NGROK:
+
+Para usar o NGROK tem que adicionar o link gerado em ALLOWED_HOSTS 
+no arquivo desafio/settings.py e por mudar a definição padrão tem 
+que adicionar o local host também para poder funcionar, ficando algo como:
+
+ALLOWED_HOSTS = ['2c13-177-71-45-63.sa.ngrok.io', '127.0.0.1']

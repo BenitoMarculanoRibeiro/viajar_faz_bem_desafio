@@ -14,7 +14,7 @@ Mostra todas as vitrines do arquivo all.js.
 
 ##### vitrines/home
 
-Mostra as vitrines selecionadas no arquivo all.js id 2.
+Mostra as vitrines selecionadas no arquivo all.js id 2 e id 3.
 
 ##### vitrines/destinos
 
@@ -22,4 +22,4 @@ Mostra as vitrines selecionadas no arquivo all.js id 1.
 
 ##### vitrines/sobre
 
-Como o arquivo do sobre.js está vazio e os outros idsestão nos outros arquivos assumi que o id 3 seria a exibição da pagina sobre.
+Exibirá as informações de um item.

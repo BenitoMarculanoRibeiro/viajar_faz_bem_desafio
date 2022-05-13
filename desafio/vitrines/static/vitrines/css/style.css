@@ -19,6 +19,7 @@ body {
     max-width: 90%;
     height: 100px;
     margin: auto;
+    padding-left: 3.5%;
 }
 
 .title {
@@ -37,20 +38,29 @@ body {
     color: #292f33;
 }
 
-.grid {
+.carousel {
     display: grid;
     grid-template-columns: 20% 20% 20% 20%;
     max-width: 90%;
-    padding: 10px;
     margin: auto;
-    column-gap: 5%;
-    row-gap: 2%;
 }
 
 .card {
+    display: grid;
     border: 1px solid #dae1e6;
     border-radius: 15px;
     background: #fff;
+    overflow: hidden;
+    grid-template-columns: 90% 10%;
+}
+
+.card_container {
+    display: grid;
+}
+
+.space {
+    width: 10px !important;
+    padding-left: 10px;
     overflow: hidden;
 }
 
@@ -60,8 +70,11 @@ body {
 }
 
 .content {
-    display: grid;
+    display: block;
     grid-template-rows: 30% 20%;
+    padding: 0;
+    height: 100px;
+    padding-left: 4%;
 }
 
 .name {

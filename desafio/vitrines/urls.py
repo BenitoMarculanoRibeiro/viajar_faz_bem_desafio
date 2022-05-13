@@ -10,5 +10,6 @@ urlpatterns = [
     # ex: /vitrines/destinos/
     path('destinos/', views.destinos, name='destinos'),
     # ex: /vitrines/sobre/
-    path('sobre/', views.sobre, name='sobre'),
+    path('sobre/<category>/<country>/<state>/<city>/<item>',
+         views.sobre, name='sobre'),
 ]

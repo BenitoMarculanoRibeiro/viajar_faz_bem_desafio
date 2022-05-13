@@ -8,30 +8,59 @@
     <title>Viajar Faz Bem Desafio</title>
     <link rel="icon" type="imagem/png" href="https://viajarfazbem.com/favicon-16.png" />
     <link rel="stylesheet" type="text/css" href="{% static 'vitrines/css/style.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrines/css/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrines/css/slick-theme.css' %}">
+
+    <script src="{% static 'vitrines/js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'vitrines/js/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'vitrines/js/slick.js' %}"></script>
 </head>
 
 <body>
     {% if itens and pages %} {% for page in pages %}
     <div class="container_titles">
-        <p class="title">{{ page.title }}</p>
-        <p class="subtitle">{{ page.subtitle }}</p>
+        <p class="title">
+            {{ page.title }}
+        </p>
+        <p class="subtitle">
+            {{ page.subtitle }}
+        </p>
     </div>
-    <div class="grid">
-        {% for item in itens %}
+    <div class="carousel">
+        {% for item in itens %} {% if item.page_id == page.id %}
         <div class="card">
             <div class="image">
-                <a href="{{ item.slug}}"><img src="https://thumb.sbtur.com/FxHMThgskvnFO2gAVLaACkEYtG8=/1000x600/smart/viajar-faz-bem-production.s3.amazonaws.com/portal/accommodation/pousada-verde-%C3%A1gua--1b66eae7-93a9-4313-954d-d8a511e082f9.jpg" alt="{{item.hotel_name}}"></a>
+                <a href="/vitrines/sobre/{{ item.category.slug }}/{{ item.country.slug }}/{{ item.city.state }}/{{ item.city.slug }}/{{ item.slug }}">
+                    <img src="https://thumb.sbtur.com/FxHMThgskvnFO2gAVLaACkEYtG8=/1000x600/smart/viajar-faz-bem-production.s3.amazonaws.com/portal/accommodation/pousada-verde-%C3%A1gua--1b66eae7-93a9-4313-954d-d8a511e082f9.jpg" alt="{{ item.hotel_name }}">
+                </a>
             </div>
             <div class="content">
-                <a class="name" href="/vitrines/{{ item.slug }}">
-                    <p>{{ item.hotel_name }}</p>
+                <a class="name" href="/vitrines/sobre/{{ item.category.slug }}/{{ item.country.slug }}/{{ item.city.state }}/{{ item.city.slug }}/{{ item.slug }}">
+                    <p>
+                        {{ item.hotel_name }}
+                    </p>
                 </a>
-                <p class="endereco">{{ item.city }}, {{ item.city.state }}</p>
+                <p class="endereco">
+                    {{ item.city }}, {{ item.city.state }}
+                </p>
             </div>
         </div>
-        {% endfor %}
-
+        {% endif %} {% endfor %}
     </div>
+    {% endfor %} {% else %}
+    <p>
+        No itens are available.
+    </p>
+    {% endif %}
+    <script>
+        $('.carousel').slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 3
+        });
+    </script>
 </body>
 
 </html>
