@@ -21,9 +21,12 @@ def destinos(request):
     return render(request, 'vitrines/index.html', {'itens': itens, 'pages': pages.filter(id=page_id)})
 
 
-def sobre(request, category, country, state, city, item):
+def sobre(request, category, country, state, city, item,page):
     page_id = 3
     print(category, country, state, city, item)
+    item = Item.objects.get(page_id = page, slug=item, city_id=City.objects.get(slug=city, state=state).id, country_id=Country.objects.get(
+        slug=country).id, category_id=Category.objects.get(slug=category).id)
+    print(item)
     print('\n')
     itens = Item.objects.filter(page_id=page_id)
-    return render(request, 'vitrines/index.html', {'itens': itens, 'pages': pages.filter(id=page_id)})
+    return render(request, 'vitrines/sobre.html', {'item': item,'itens': itens, 'pages': pages.filter(id=page_id)})

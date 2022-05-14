@@ -1,17 +1,60 @@
-{% if itens and page %}
-    <div>
-        <h1>{{ page.title }}</h1>
-        <h2>{{ page.subtitle }}</h2>
-    </div>
-    <ul>
-        {% for item in itens %}
-            <li>
-                <a href="/vitrines/{{ item.slug }}/">{{ item.hotel_name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>
-        No itens are available.
-    </p>
-{% endif %}
+<!DOCTYPE html> {% load static %}
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajar Faz Bem Desafio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrines/css/header.css' %}">
+    <link rel="icon" type="imagem/png" href="https://viajarfazbem.com/favicon-16.png" />
+    <link rel="stylesheet" type="text/css" href="{% static 'vitrines/css/sobre.css' %}">
+
+    <body>
+        {% if item %}
+        <header class="header">
+            <a href="/vitrines/" class="header__link">Desafio Viajar Faz Bem</a>
+            <div class="menu">
+                <div class="vitrines"><a href="/vitrines/">Vitrines</a></div>
+                <div class="home"><a href="/vitrines/home/">Home</a></div>
+                <div class="destinos"><a href="/vitrines/destinos/">Destinos</a></div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="topo">
+                <div class="name">
+                    <p>
+                        {{ item.hotel_name }}
+                    </p>
+                </div>
+                <div class="endereco">
+                    <p>
+                        {{ item.city }}, {{ item.city.state }}, {{ item.country }}
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="image">
+                <img src="https://thumb.sbtur.com/FxHMThgskvnFO2gAVLaACkEYtG8=/1000x600/smart/viajar-faz-bem-production.s3.amazonaws.com/portal/accommodation/pousada-verde-%C3%A1gua--1b66eae7-93a9-4313-954d-d8a511e082f9.jpg" alt="{{ item.hotel_name }}">
+            </div>
+            <div class="category">
+                <div>
+                    <p>Categoria: {{ item.category}}</p>
+                </div>
+            </div>
+            <div class="preco">
+                <div>
+                    <p>Preço: R$ {{ item.price}}</p>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <p>
+            No itens are available.
+        </p>
+        {% endif %}
+    </body>
+
+</html>
