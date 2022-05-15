@@ -1,9 +1,5 @@
 from django.contrib import admin
 from .models import *
-'''admin.site.register(City)
-admin.site.register(Country)
-admin.site.register(Category)
-admin.site.register(Itens)'''
 
 
 @admin.register(City)
@@ -34,21 +30,3 @@ class ItemAdmin(admin.ModelAdmin):
 @admin.register(Page)
 class PageAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'subtitle')
-
-
-'''
-
-
-
-
-@admin.register(Itens)
-class ItensAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'author', 'created', 'updated')
-    prepopulated_fields = {"slug": ("title",)}
-
-
-@admin.register(Page)
-class PageAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'author', 'created', 'updated')
-    prepopulated_fields = {"slug": ("title",)}
-'''

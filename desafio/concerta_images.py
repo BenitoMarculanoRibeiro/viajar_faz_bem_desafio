@@ -25,17 +25,10 @@ for resposta in respostas:
     images.append(resposta.attrib.get('src'))
 
 
-print(len(images))
-
 page_id = [2, 3]
 itens = Item.objects.all()
 
-print(len(itens))
-for item in itens:
-    print(item.image)
 
 for item in itens:
     item.image = images.pop(0)
     item.save()
-for item in itens:
-    print(item.image)

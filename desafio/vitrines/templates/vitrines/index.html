@@ -21,9 +21,9 @@
         <link rel="stylesheet"
               type="text/css"
               href="{% static 'vitrines/css/slick-theme.css' %}">
-        <script src="{% static 'vitrines/js/jquery-1.11.0.min.js' %}"></script>
-        <script src="{% static 'vitrines/js/jquery-migrate-1.2.1.min.js' %}"></script>
-        <script src="{% static 'vitrines/js/slick.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
     </head>
     <body>
         <header class="header">
@@ -56,8 +56,7 @@
                             <div class="card">
                                 <div class="image">
                                     <a href="/vitrines/sobre/{{ item.category.slug }}/{{ item.country.slug }}/{{ item.city.state }}/{{ item.city.slug }}/{{ item.slug }}/{{ item.page_id }}">
-                                        <img src="{{ item.image }}"
-                                             alt="{{ item.hotel_name }}">
+                                        <img src="{{ item.image }}" alt="{{ item.hotel_name }}">
                                     </a>
                                 </div>
                                 <div class="content">

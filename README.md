@@ -43,6 +43,7 @@
    ```
 10. Aqui já estará funcionando e com dados mas não podera acessar a parte de administração do site com o comando `py manage.py createsuperuser` será possivel criar um super usuario para poder acessar o sistema de administração do site.
 11. Pode ser usado o programa ngrok para criar um servidor na propria maquina, mas terá que adicionar o link gerado em ALLOWED_HOSTS no arquivo desafio/settings.py, ficando algo como `ALLOWED_HOSTS = ['2c13-177-71-45-63.sa.ngrok.io', '127.0.0.1']` e lembresse de manter o host `'127.0.0.1'` para poder rodar localmente.
+12. A para acessar o site deverá entrar `http://127.0.0.1:8000/vitrines/` ou `http://127.0.0.1:8000/admin/` para entrar na área de admin do site.
 
 ## Rotas
 
@@ -56,7 +57,19 @@ Mostra as vitrines selecionadas no arquivo all.js id 2 e id 3.
 
 ##### vitrines/destinos
 
-Mostra as vitrines selecionadas no arquivo all.js id 1.
+Mostra o agrupamento de todas as vitrines, e exites uma barra de pesquisa que aplica filtros nas vitrines.
+
+##### vritines/destinos/?limit=<numero>
+
+Aplica um filtro que limita o numero de resultados.
+
+##### vritines/destinos/?state=<estado>
+
+Aplica um filtro que retorna apenas os resultados do estado escolhido resultados.
+
+##### vritines/destinos/?text=<texto>
+
+Aplica um filtro que faz retornar itens que contenham nome, pais, estado, cidade ou categoria semelhante ao texto inserido.
 
 ##### vitrines/sobre
 

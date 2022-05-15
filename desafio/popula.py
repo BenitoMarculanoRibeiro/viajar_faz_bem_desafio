@@ -4,7 +4,7 @@ try:
 except print(0):
     pass
 
-from vitrines.models import City, Country, Category, Item, Page
+from vitrines.models import *
 import json
 
 

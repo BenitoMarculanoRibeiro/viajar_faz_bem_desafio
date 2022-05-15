@@ -1,3 +1,0 @@
-# SuperUserDjango:
-user = 'admin'
-password = 'admin'

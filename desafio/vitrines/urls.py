@@ -1,4 +1,4 @@
-from django.urls import path, re_path
+from django.urls import path
 from . import views
 
 
@@ -6,7 +6,7 @@ urlpatterns = [
     # ex: /vitrines/
     path('', views.index, name='index'),
     # ex: /vitrines/home/
-    re_path('home/', views.home, name='home'),
+    path('home/', views.home, name='home'),
     # ex: /vitrines/destinos/
     path('destinos/', views.destinos, name='destinos'),
     # ex: /vitrines/sobre/

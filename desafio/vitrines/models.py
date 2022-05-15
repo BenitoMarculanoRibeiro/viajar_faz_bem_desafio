@@ -9,11 +9,8 @@ class City(models.Model):
     def __str__(self):
         return self.name
 
-    '''def all_json(self):
-        return [x.dados_json() for x in c if x != None] '''
-
     def dados_json(self):
-        return {"id": self.id,"name": self.name, "slug": self.slug, "state": self.state}
+        return {"id": self.id, "name": self.name, "slug": self.slug, "state": self.state}
 
 
 class Country(models.Model):
@@ -24,7 +21,7 @@ class Country(models.Model):
         return self.name
 
     def dados_json(self):
-        return {"id": self.id,"name": self.name, "slug": self.slug}
+        return {"id": self.id, "name": self.name, "slug": self.slug}
 
 
 class Category(models.Model):
@@ -35,7 +32,7 @@ class Category(models.Model):
         return self.name
 
     def dados_json(self):
-        return {"id": self.id,"name": self.name, "slug": self.slug}
+        return {"id": self.id, "name": self.name, "slug": self.slug}
 
 
 class Item(models.Model):
@@ -53,21 +50,16 @@ class Item(models.Model):
         return self.hotel_name
 
     def dados_json(self):
-        return {"id": self.id,"hotel_name": self.hotel_name, "slug": self.slug, "image": self.image, "city": self.city, "country": self.country, "category": self.category, "price": self.price, "page": self.page}
+        return {"id": self.id, "hotel_name": self.hotel_name, "slug": self.slug, "image": self.image, "city": self.city, "country": self.country, "category": self.category, "price": self.price, "page": self.page}
 
 
 class Page(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255)
+
     def __str__(self):
         return self.title
 
     def dados_json(self):
-        return {"id": self.id,"title": self.title, "subtitle": self.subtitle}
-
-
-    #itens = models.OneToOneField(Item,on_delete=models.CASCADE, related_name='item')
-    #itens = models.ForeignKey("Item", on_delete=models.CASCADE, related_name='item')
-'''class PageItem(models.Model):
-    id = models.PositiveIntegerField(foreign_key=True)'''
+        return {"id": self.id, "title": self.title, "subtitle": self.subtitle}
