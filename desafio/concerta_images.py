@@ -12,9 +12,7 @@ xpath = "//img[contains(@src,'sbtur.com/')]"
 images = []
 page = requests.get('https://viajarfazbem.com/destinos/Brasil/RS/Canela')
 tree = html.fromstring(page.content)
-
 respostas = tree.xpath(xpath)
-
 for resposta in respostas:
     images.append(resposta.attrib.get('src'))
 
