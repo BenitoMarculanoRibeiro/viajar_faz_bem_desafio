@@ -1,0 +1,35 @@
+.formulario {
+    display: grid;
+    margin-top: 1%;
+    margin-left: 10%;
+    margin-right: 10%;
+    grid-template-columns: 33% 33% 33%;
+    height: auto;
+}
+
+.text {
+    text-align: center;
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 600;
+    color: rgb(133, 133, 133);
+    font-family: Source Sans Pro, sans-serif;
+}
+
+.limit {
+    text-align: center;
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 600;
+    color: rgb(133, 133, 133);
+    font-family: Source Sans Pro, sans-serif;
+}
+
+.state {
+    text-align: center;
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 600;
+    color: rgb(133, 133, 133);
+    font-family: Source Sans Pro, sans-serif;
+}

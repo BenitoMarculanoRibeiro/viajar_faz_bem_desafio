@@ -1,0 +1,95 @@
+html {
+    background-color: #fff;
+    word-wrap: break-word;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    align-items: center;
+}
+
+.container_titles {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 30%;
+    max-width: 90%;
+    height: 100px;
+    margin: auto;
+    padding-left: 3.5%;
+}
+
+.title {
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 600;
+    color: #292f33;
+    font-family: Source Sans Pro, sans-serif;
+}
+
+.subtitle {
+    font-family: Source Sans Pro, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #292f33;
+}
+
+.carousel {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    max-width: 90%;
+    margin: auto;
+}
+
+.card {
+    display: grid;
+    border: 1px solid #dae1e6;
+    border-radius: 15px;
+    background: #fff;
+    overflow: hidden;
+    grid-template-columns: 90% 10%;
+}
+
+.card_container {
+    display: grid;
+}
+
+.space {
+    width: 10px !important;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+.image a img {
+    display: flex;
+    width: 100%;
+}
+
+.content {
+    display: block;
+    grid-template-rows: 30% 20%;
+    padding: 0;
+    height: 100px;
+    padding-left: 4%;
+}
+
+.name {
+    text-decoration: none;
+}
+
+.name p {
+    font-family: Source Sans Pro, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #292f33;
+    text-decoration: none;
+}
+
+.endereco {
+    font-size: 16px;
+    color: #667680;
+}
